@@ -11,7 +11,6 @@ import java.util.List;
 
 @Repository
 public interface UserRepo extends JpaRepository<User, Long> {
-    @Modifying
-    @Query("SELECT 1 FROM User u WHERE u.email = :email")
+    @Query("SELECT u FROM User u WHERE u.email = :email")
     User findByEmail(@Param("email")String email);
 }
